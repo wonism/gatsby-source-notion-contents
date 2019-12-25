@@ -33,7 +33,7 @@ You can get it from [Notion.so](https://www.notion.so/) cookie. the key of it is
 ## How to query
 - Get all posts
 
-```js
+```graphql
 query Notions {
   allNotionContent {
     edges {
@@ -44,13 +44,13 @@ query Notions {
         }
       }
     }
-	}
+  }
 }
 ```
 
-- Get a specific post
+- Get a post
 
-```js
+```graphql
 query Notion {
   notionContent {
     id
@@ -61,6 +61,38 @@ query Notion {
 }
 ```
 
+- Get a specific post
+
+```graphql
+query Notion {
+  notionContent(id: { eq: "ID_SPECIFIC_POST" }) {
+    id
+    internal {
+      content
+    }
+  }
+}
+```
+
+
+## Example
+```jsx
+const Component = {
+  const data = useStaticQuery(graphql`
+    query Notion {
+      notionContent {
+        internal {
+          content
+        }
+      }
+    }
+  `);
+
+  return (
+    <div dangerouslySetInnerHTML={{ __html: data.notionContent.internal.content }} />
+  );
+};
+```
 
 ---
 
