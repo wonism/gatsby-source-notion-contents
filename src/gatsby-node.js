@@ -22,7 +22,6 @@ const getSources = async ({ actions: { createNode }, createContentDigest }, opti
   );
 
   pages.forEach(({ id, page }) => {
-    const content = JSON.stringify(page);
     const node = {
       id,
       parent: null,
@@ -30,7 +29,7 @@ const getSources = async ({ actions: { createNode }, createContentDigest }, opti
       internal: {
         type: 'NotionContent',
         mediaType: 'text/html',
-        content,
+        content: page,
         contentDigest: createContentDigest(page),
       },
     };
