@@ -1,0 +1,36 @@
+{
+  "name": "gatsby-source-notion-contents",
+  "version": "1.0.0",
+  "description": "Get gatsby sources from notion",
+  "main": "index.js",
+  "scripts": {
+    "build": "babel src --out-dir .",
+    "precommit": "npm run build",
+    "prepublish": "npm run precommit",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "gatsby",
+    "gatsby-plugin",
+    "gatsby-node",
+    "gatsby-notion",
+    "notion"
+  ],
+  "author": "wonism <yocee57@gmail.com> (https://wonism.github.io)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wonism/gatsby-source-notion-contents/issues"
+  },
+  "repository": "https://github.com/wonism/gatsby-source-notion-contents",
+  "homepage": "https://github.com/wonism/gatsby-source-notion-contents",
+  "dependencies": {
+    "@babel/runtime": "^7.7.7",
+    "get-notion-contents": "^1.1.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.7.7",
+    "@babel/core": "^7.7.7",
+    "babel-preset-gatsby-package": "^0.2.14",
+    "husky": "^3.1.0"
+  }
+}
