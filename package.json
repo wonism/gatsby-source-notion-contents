@@ -1,6 +1,6 @@
 {
   "name": "gatsby-source-notion-contents",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Get gatsby sources from notion",
   "main": "index.js",
   "scripts": {
