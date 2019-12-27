@@ -21,7 +21,7 @@ const getSources = async ({ actions: { createNode }, createContentDigest }, opti
     )
   );
 
-  pages.forEach(({ id, page: { title, content, resource = '' } }) => {
+  pages.forEach(({ page: { id, titleString: description, title, content, resource = '' } }) => {
     const page = title + content + resource;
 
     const node = {
@@ -33,6 +33,7 @@ const getSources = async ({ actions: { createNode }, createContentDigest }, opti
         mediaType: 'text/html',
         content: page,
         contentDigest: createContentDigest(page),
+        description,
       },
     };
 
