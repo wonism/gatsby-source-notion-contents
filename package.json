@@ -1,6 +1,6 @@
 {
   "name": "gatsby-source-notion-contents",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "Get gatsby sources from notion",
   "main": "index.js",
   "scripts": {
@@ -26,7 +26,7 @@
   "homepage": "https://github.com/wonism/gatsby-source-notion-contents",
   "dependencies": {
     "@babel/runtime": "^7.7.7",
-    "get-notion-contents": "^2.0.5"
+    "get-notion-contents": "^2.0.6"
   },
   "devDependencies": {
     "@babel/cli": "^7.7.7",
