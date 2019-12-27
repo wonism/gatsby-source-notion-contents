@@ -95,3 +95,4 @@ typings/
 .DS_Store
 
 /gatsby-node.js
+public
