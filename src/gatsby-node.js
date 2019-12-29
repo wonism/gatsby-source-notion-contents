@@ -1,12 +1,21 @@
 const Notion = require('get-notion-contents').default;
 
+const formatUid = (uid) => {
+  if (uid.indexOf('-') === -1) {
+    return `${uid.slice(0, 8)}-${uid.slice(8, 12)}-${uid.slice(12, 16)}-${uid.slice(16, 20)}-${uid.slice(20)}`;
+  }
+
+  return uid;
+};
+
 const getSources = async ({ actions: { createNode }, createContentDigest }, options) => {
   if (options == null && options.token == null) {
     throw new Error('token is required');
   }
 
-  const notion = new Notion(options.token);
+  const notion = new Notion(options.token, { prefix: options.prefix, removeStyle: options.removeStyle });
 
+  const hydratedIds = (options.ids || []).map(formatUid);
   const pageIds = (await notion.getPageIds()).concat(options.ids || []);
   const pages = await Promise.all(
     pageIds.map(

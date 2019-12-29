@@ -13,6 +13,22 @@ $ npm i -S gatsby-source-notion-contents
 You need a token to use this package.
 You can get it from [Notion.so](https://www.notion.so/) cookie. the key of it is `token_v2`.
 
+
+## Options
+```ts
+type Option = {
+  token: string; // Required
+  ids?: string[]; // Optional. To get contents that are out of scope.
+  prefix?: string; // Optional. to add prefix into relative links
+  removeStyle?: boolean; // Optional. to remove inline styles
+};
+```
+
+__ids__
+
+If the URL is `https://www.notion.so/Personal-Home-db45cd2e7c694c3493c97f2376ab184a`,
+You need to add `db45cd2e7c694c3493c97f2376ab184a` into `options.ids`.
+
 ## How to use
 ```js
 // In your gatsby-config.js
@@ -25,15 +41,13 @@ You can get it from [Notion.so](https://www.notion.so/) cookie. the key of it is
       options: {
         token: '<<YOUR_NOTION_TOKEN>>',
         ids: ['<<ID_OF_NOTION_PAGE>>'],
+        prefix: '/',
+        removeStyle: false,
       },
     },
   ]
 }
 ```
-
-If the URL is `https://www.notion.so/Personal-Home-db45cd2e7c694c3493c97f2376ab184a`,
-You need to add `db45cd2e7c694c3493c97f2376ab184a` into `options.ids`.
-(⚠️ `ids` is optional. but it **should** be array.)
 
 ## How to query
 - Get all posts
