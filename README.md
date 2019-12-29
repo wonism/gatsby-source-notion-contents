@@ -24,11 +24,16 @@ You can get it from [Notion.so](https://www.notion.so/) cookie. the key of it is
       resolve: `gatsby-source-notion-contents`,
       options: {
         token: '<<YOUR_NOTION_TOKEN>>',
+        ids: ['<<ID_OF_NOTION_PAGE>>'],
       },
     },
   ]
 }
 ```
+
+If the URL is `https://www.notion.so/Personal-Home-db45cd2e7c694c3493c97f2376ab184a`,
+You need to add `db45cd2e7c694c3493c97f2376ab184a` into `options.ids`.
+(⚠️ `ids` is optional. but it **should** be array.)
 
 ## How to query
 - Get all posts
@@ -39,7 +44,9 @@ query Notions {
     edges {
       node {
         id
+        contentType
         internal {
+          # ... other properties of internal
           content
         }
       }
@@ -54,7 +61,9 @@ query Notions {
 query Notion {
   notionContent {
     id
+    contentType
     internal {
+      # ... other properties of internal
       content
     }
   }
@@ -67,7 +76,9 @@ query Notion {
 query Notion {
   notionContent(id: { eq: "ID_SPECIFIC_POST" }) {
     id
+    contentType
     internal {
+      # ... other properties of internal
       content
     }
   }

@@ -7,7 +7,7 @@ const getSources = async ({ actions: { createNode }, createContentDigest }, opti
 
   const notion = new Notion(options.token);
 
-  const pageIds = await notion.getPageIds();
+  const pageIds = (await notion.getPageIds()).concat(options.ids || []);
   const pages = await Promise.all(
     pageIds.map(
       async (id) => {
@@ -21,13 +21,14 @@ const getSources = async ({ actions: { createNode }, createContentDigest }, opti
     )
   );
 
-  pages.forEach(({ id, page: { titleString: description, title, content, resource = '' } }) => {
+  pages.forEach(({ id, page: { type, titleString: description, title, content, resource = '' } }) => {
     const page = title + content + resource;
 
     const node = {
       id,
       parent: null,
       children: [],
+      contentType: type,
       internal: {
         type: 'NotionContent',
         mediaType: 'text/html',
