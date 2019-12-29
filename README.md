@@ -85,8 +85,12 @@ query Notion {
 }
 ```
 
-
 ## Example
+
+#### Sample project
+- https://github.com/wonism/gatsby-source-notion-contents-sample
+
+#### Example source
 ```jsx
 const Component = {
   const data = useStaticQuery(graphql`
