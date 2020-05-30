@@ -10,17 +10,17 @@ $ npm i -S gatsby-source-notion-contents
 ```
 
 ## ⚠️ Prerequisite
-You need a token to use this package.
+You need a token to use this package if you want to get private contents.
 You can get it from [Notion.so](https://www.notion.so/) cookie. the key of it is `token_v2`.
 
 
 ## Options
 ```ts
 type Option = {
-  token: string; // Required
-  ids?: string[]; // Optional. To get contents that are out of scope.
-  prefix?: string; // Optional. to add prefix into relative links
-  removeStyle?: boolean; // Optional. to remove inline styles
+  token?: string; // Optional. need token when you need to get private contents.
+  ids?: string[]; // Optional. to get contents that are out of scope.
+  prefix?: string; // Optional. to add prefix into relative links.
+  removeStyle?: boolean; // Optional. to remove inline styles.
 };
 ```
 

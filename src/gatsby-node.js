@@ -9,14 +9,10 @@ const formatUid = (uid) => {
 };
 
 const getSources = async ({ actions: { createNode }, createContentDigest }, options) => {
-  if (options == null && options.token == null) {
-    throw new Error('token is required');
-  }
+  const notion = new Notion(options?.token, { prefix: options?.prefix, removeStyle: options?.removeStyle ?? false });
 
-  const notion = new Notion(options.token, { prefix: options.prefix, removeStyle: options.removeStyle });
-
-  const hydratedIds = (options.ids || []).map(formatUid);
-  const pageIds = (await notion.getPageIds()).concat(options.ids || []);
+  const hydratedIds = (options?.ids || []).map(formatUid);
+  const pageIds = (await notion.getPageIds()).concat(options?.ids || []);
   const pages = await Promise.all(
     pageIds.map(
       async (id) => {
