@@ -1,6 +1,6 @@
 {
   "name": "gatsby-source-notion-contents",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Get gatsby sources from notion",
   "main": "index.js",
   "scripts": {
@@ -25,16 +25,16 @@
   "repository": "https://github.com/wonism/gatsby-source-notion-contents",
   "homepage": "https://github.com/wonism/gatsby-source-notion-contents",
   "dependencies": {
-    "@babel/runtime": "^7.7.7",
-    "get-notion-contents": "^2.3.0"
+    "@babel/runtime": "^7.10.2",
+    "get-notion-contents": "^2.4.1"
   },
   "devDependencies": {
-    "@babel/cli": "^7.7.7",
-    "@babel/core": "^7.7.7",
+    "@babel/cli": "^7.10.1",
+    "@babel/core": "^7.10.2",
     "@babel/plugin-proposal-nullish-coalescing-operator": "^7.10.1",
     "@babel/plugin-proposal-optional-chaining": "^7.10.1",
-    "babel-preset-gatsby-package": "^0.2.14",
-    "gatsby": "^2.18.17",
-    "husky": "^3.1.0"
+    "babel-preset-gatsby-package": "^0.4.3",
+    "gatsby": "^2.23.1",
+    "husky": "^4.2.5"
   }
 }
