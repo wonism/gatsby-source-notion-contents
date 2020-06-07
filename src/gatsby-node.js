@@ -26,7 +26,7 @@ const getSources = async ({ actions: { createNode }, createContentDigest }, opti
     )
   );
 
-  pages.forEach(({ id, page: { type, titleString: description, title, content, resource = '' } }) => {
+  pages.forEach(({ id, page: { type, titleString: description = '', title = '', content = '', resource = '' } }) => {
     const page = title + content + resource;
 
     const node = {
